@@ -1,2 +1,1 @@
-# terraform-jenkins-eks
-Deploying EKS Cluster using Terraform and Jenkins
+##Deploying Jenkins server on Ec2 instance using Terraform and GitHub Actions
