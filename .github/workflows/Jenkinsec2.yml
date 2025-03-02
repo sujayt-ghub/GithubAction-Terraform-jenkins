@@ -76,4 +76,4 @@ jobs:
       with:
           operation: upload
           location: repository
-          directory: EKS
+          directory: JenkinsEc2Server
