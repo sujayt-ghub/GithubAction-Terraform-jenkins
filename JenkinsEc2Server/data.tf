@@ -5,7 +5,7 @@ data "aws_ami" "example" {
   filter {
     name   = "name"
     //values = ["amzn2-ami-kernel-*-hvm-*-x86_64-gp2"]
-    values = ["Amazon Linux 2023 AMI 2023.7.20250609.0 x86_64 HVM kernel-6.1"]
+    values = ["ami-09e6f87a47903347c"]
   }
 
   filter {
