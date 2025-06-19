@@ -61,7 +61,7 @@ module "sg" {
   }
 }
 
-/*# EC2
+# EC2
 module "ec2_instance" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
@@ -82,4 +82,4 @@ module "ec2_instance" {
     Terraform   = "true"
     Environment = "dev"
   }
-}*/
+}
