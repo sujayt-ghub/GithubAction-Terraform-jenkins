@@ -86,8 +86,7 @@ module "ec2_instance" {
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
-  name = "single-instance"
-              
+  name                   = "single-instance"          
   ami                    = "ami-09e6f87a47903347c"
   instance_type          = "t2.micro"
   key_name               = "jenkins-server-key"
