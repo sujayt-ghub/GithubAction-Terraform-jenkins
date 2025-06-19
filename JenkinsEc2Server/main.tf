@@ -61,7 +61,7 @@ module "sg" {
   }
 }
 
-# EC2
+/*# EC2
 module "ec2_instance" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
@@ -79,6 +79,24 @@ module "ec2_instance" {
 
   tags = {
     Name        = "Jenkins-Server"
+    Terraform   = "true"
+    Environment = "dev"
+  }
+}*/
+module "ec2_instance" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+
+  name = "single-instance"
+              
+  ami                    = "ami-09e6f87a47903347c"
+  instance_type          = "t2.micro"
+  key_name               = "jenkins-server-key"
+  monitoring             = true
+  vpc_security_group_ids = [module.sg.security_group_id]
+  subnet_id              = module.vpc.public_subnets[0]
+  availability_zone      = data.aws_availability_zones.azs.names[0]
+
+  tags = {
     Terraform   = "true"
     Environment = "dev"
   }
