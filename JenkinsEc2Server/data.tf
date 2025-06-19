@@ -1,4 +1,4 @@
-data "aws_ami" "example" {
+/*data "aws_ami" "example" {
   most_recent = true
   owners      = ["amazon"]
 
@@ -17,6 +17,6 @@ data "aws_ami" "example" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
-}
+}*/
 
 data "aws_availability_zones" "azs" {}
