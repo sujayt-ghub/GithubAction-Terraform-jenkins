@@ -67,7 +67,8 @@ module "ec2_instance" {
 
   name = "Jenkins-Server"
 
-  instance_type               = var.instance_type
+  instance_type               = "t2.micro"
+  ami                         = "ami-09e6f87a47903347c"
   key_name                    = "jenkins-server-key"
   monitoring                  = true
   vpc_security_group_ids      = [module.sg.security_group_id]
