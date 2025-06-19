@@ -83,7 +83,7 @@ module "ec2_instance" {
     Environment = "dev"
   }
 }*/
-module "ec2_instance" {
+/*module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name                   = "single-instance"          
@@ -99,5 +99,15 @@ module "ec2_instance" {
   tags = {
     Terraform   = "true"
     Environment = "dev"
+  }
+}*/
+resource "aws_instance" "webser" {
+  ami           = "ami-09e6f87a47903347c"
+  instance_type = "t2.micro"
+  key_name      = "jenkins-server-key"
+  monitoring    = true
+
+  tags = {
+    Name = "HelloWorld"
   }
 }
