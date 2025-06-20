@@ -121,10 +121,10 @@ module "instance" {
   name = "single-aws-instance"
   ami           = "ami-09e6f87a47903347c"
   instance_type = "t2.micro"
-  key_name      = "jenkins-server-key"
+  ssh_key_pair      = "jenkins-server-key"
   monitoring    = true
-  vpc_security_group_ids      = [module.sg.security_group_id]
-  subnet_id                   = module.vpc.public_subnets[0]
+  security_groups      = [module.sg.security_group_id]
+  subnet                   = module.vpc.public_subnets[0]
 
   tags = {
     Name = "HelloWorld"
