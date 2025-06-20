@@ -114,7 +114,7 @@ module "ec2_instance" {
   }
 }*/
 
-module "ec2_instance" {
+module "instance" {
   //source  = "terraform-aws-modules/ec2-instance/aws"
   source = "cloudposse/ec2-instance/aws"
 
