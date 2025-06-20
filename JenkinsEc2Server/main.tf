@@ -123,7 +123,8 @@ module "instance" {
   instance_type = "t2.micro"
   ssh_key_pair      = "jenkins-server-key"
   monitoring    = true
-  vpc_id     = [module.sg.security_group_id]
+  vpc_id        = module.vpc.vpc_id
+  security_groups    = [module.sg.security_group_id]
   subnet                   = module.vpc.public_subnets[0]
 
   tags = {
