@@ -115,7 +115,8 @@ module "ec2_instance" {
 }*/
 
 module "ec2_instance" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
+  //source  = "terraform-aws-modules/ec2-instance/aws"
+  source = "cloudposse/ec2-instance/aws"
 
   name = "single-aws-instance"
   ami           = "ami-09e6f87a47903347c"
