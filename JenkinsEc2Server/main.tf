@@ -101,6 +101,19 @@ module "ec2_instance" {
     Environment = "dev"
   }
 }*/
+/*resource "aws_instance" "webser" {
+  ami           = "ami-09e6f87a47903347c"
+  instance_type = "t2.micro"
+  key_name      = "jenkins-server-key"
+  monitoring    = true
+  vpc_security_group_ids      = [module.sg.security_group_id]
+  subnet_id                   = module.vpc.public_subnets[0]
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}*/
+
 resource "aws_instance" "webser" {
   ami           = "ami-09e6f87a47903347c"
   instance_type = "t2.micro"
