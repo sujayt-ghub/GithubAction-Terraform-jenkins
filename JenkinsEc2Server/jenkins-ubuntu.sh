@@ -1,29 +1,36 @@
 #!/bin/bash
 
 # install jenkins
-sudo yum update -y
+sudo apt update -y
 
-sudo wget -O /etc/yum.repos.d/jenkins.repo \
-   https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo apt install java-17-openjdk -y
 
-sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
-sudo yum upgrade -y
-sudo yum install java -y
-sudo yum install jenkins.noarch -y
-sudo systemctl daemon-reload
-sudo systemctl enable jenkins.service
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+sudo systemctl enable jenkins
 sudo systemctl start jenkins
-sudo systemctl status jenkins
 
 
 
 # then install git
-sudo yum install git -y
+sudo apt install git -y
 
 #then install terraform
-sudo yum install -y yum-utils
-sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
-sudo yum -y install terraform
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+wget -O- https://apt.releases.hashicorp.com/gpg | \
+ gpg --dearmor | \
+ sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+ sudo apt update -y
+ sudo apt-get install terraform -y
+ 
+ 
+
 
 #finally install kubectl
 sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl
