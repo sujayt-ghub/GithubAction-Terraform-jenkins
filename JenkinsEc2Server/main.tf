@@ -119,7 +119,7 @@ module "instance" {
   source = "cloudposse/ec2-instance/aws"
 
   name = "single-aws-instance"
-  ami           = "ami-09e6f87a47903347c"
+  ami           = "Canonical*Ubuntu*24.04*amd64*noble*image"
   instance_type = "t2.micro"
   ssh_key_pair      = "jenkins-server-key"
   monitoring    = true
