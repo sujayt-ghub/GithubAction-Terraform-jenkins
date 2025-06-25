@@ -23,6 +23,7 @@ sudo systemctl status jenkins
 
 # then install git
 sudo apt install git -y
+sudo apt install maven -y
 
 #then install terraform
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
