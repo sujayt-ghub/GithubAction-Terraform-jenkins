@@ -25,6 +25,7 @@ sudo systemctl status jenkins
 sudo apt install git -y
 sudo apt install maven -y
 sudo apt install docker.io -y
+sudo chmod 666 /var/run/docker.sock
 
 #then install terraform
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
