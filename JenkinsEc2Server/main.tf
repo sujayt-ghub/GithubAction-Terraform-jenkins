@@ -126,6 +126,7 @@ module "instance" {
   vpc_id        = module.vpc.vpc_id
   security_groups    = [module.sg.security_group_id]
   subnet                   = module.vpc.public_subnets[0]
+  user_data      = file("jenkins-ubuntu.sh")
 
   tags = {
     Name = "HelloWorld"
