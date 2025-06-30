@@ -127,7 +127,7 @@ module "instance" {
   security_groups    = [module.sg.security_group_id]
   subnet                   = module.vpc.public_subnets[0]
   associate_public_ip_address = true
-  root_volume_size = 20
+  root_volume_size = 25
   user_data      = file("jenkins-ubuntu.sh")
 
   tags = {
