@@ -23,7 +23,7 @@ sudo systemctl status jenkins
 
 # then install git
 sudo apt install git -y
-sudo apt install maven -y
+#sudo apt install maven -y
 sudo apt install docker.io -y
 sudo chmod 666 /var/run/docker.sock
 
