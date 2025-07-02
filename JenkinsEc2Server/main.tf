@@ -119,7 +119,7 @@ module "instance" {
   source = "cloudposse/ec2-instance/aws"
 
   name = "single-aws-instance"
-  ami           = "ami-09e6f87a47903347c"
+  ami           = "ami-020cba7c55df1f615"
   instance_type = "t2.micro"
   ssh_key_pair      = "jenkins-server-key"
   monitoring    = true
@@ -128,7 +128,7 @@ module "instance" {
   subnet                   = module.vpc.public_subnets[0]
   associate_public_ip_address = true
   root_volume_size = 25
-  user_data      = file("jenkins-install.sh")
+  user_data      = file("jenkins-ubuntu.sh")
 
   tags = {
     Name = "HelloWorld"
