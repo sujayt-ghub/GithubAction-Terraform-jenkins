@@ -11,13 +11,13 @@ sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
 echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
-#sudo apt-get update -y
-#sudo apt-get install jenkins -y
-##sudo systemctl enable jenkins
-#sudo systemctl enable jenkins.service
-#sudo systemctl daemon-reload
-#sudo systemctl start jenkins
-#sudo systemctl status jenkins
+sudo apt-get update -y
+sudo apt-get install jenkins -y
+#sudo systemctl enable jenkins
+sudo systemctl enable jenkins.service
+sudo systemctl daemon-reload
+sudo systemctl start jenkins
+sudo systemctl status jenkins
 
 
 
@@ -28,8 +28,8 @@ sudo apt install git -y
 sudo apt install docker.io -y
 sudo chmod 666 /var/run/docker.sock
 
-mkdir jenkins
-docker run -d --name jenkins -p 8080:8080 -v $PWD/jenkins/ jenkins/jenkins:jdk17
+#mkdir jenkins
+#docker run -d --name jenkins -p 8080:8080 -v $PWD/jenkins/ jenkins/jenkins:jdk17
 
 #then install terraform
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
